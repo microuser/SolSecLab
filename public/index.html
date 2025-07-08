@@ -10,7 +10,7 @@
         }
         
         body {
-            background-color: #000;
+            background-color: #181a1b;
             color: #00ff00;
             font-family: 'Courier New', monospace;
             font-size: 18px;
@@ -29,24 +29,7 @@
             margin: 0 auto;
             padding: 20px;
             min-height: 100vh;
-            background: radial-gradient(ellipse at center, #001100 0%, #000 100%);
-        }
-        
-        .scanlines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.15),
-                rgba(0, 0, 0, 0.15) 1px,
-                transparent 1px,
-                transparent 2px
-            );
-            pointer-events: none;
-            z-index: 1;
+            background: #181a1b;
         }
         
         .header {
@@ -180,7 +163,7 @@
         }
         
         .code-block {
-            background: #001100;
+            background: #181a1b;
             border: 1px solid #00ff00;
             padding: 25px 15px 15px 15px;
             margin: 20px 0;
@@ -304,7 +287,7 @@
 ║             SECURITY LABORATORY REPORT v2.7.1 - TERMINAL ACCESS              ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
             </pre>
-            <p class="blink">[ CLASSIFIED RESEARCH DOCUMENT - AUTHORIZED PERSONNEL ONLY ]</p>
+            <p class="blink">[ CONFIDENTIAL RESEARCH DOCUMENT - AUTHORIZED PERSONNEL ONLY ]</p>
         </div>
 
         <div class="toc">
@@ -446,15 +429,14 @@ TESTING_PARAMETERS = {
                     reliance on client-provided account ordering without validation. The most dangerous pattern is 
                     assuming account[0] is always the authority without explicit verification.
                 </p>
-                <p>
-                    Critical validation points to inspect: (1) Check if invoke_signed calls verify signer seeds match 
-                    expected PDAs, (2) Ensure all AccountInfo parameters undergo owner validation before data access, 
-                    (3) Verify that writable accounts are owned by the current program, (4) Confirm system_program 
-                    accounts are actually the system program (11111111111111111111111111111111), and (5) Validate 
-                    that token accounts belong to the Token Program before attempting transfers. Missing any of these 
-                    checks creates an exploitable attack surface. 
-                    <a href="https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/account.rs">[VIEW SECURE IMPLEMENTATION EXAMPLES]</a>
-                </p>
+                <ol>
+                  <li>Check if invoke_signed calls verify signer seeds match expected PDAs.</li>
+                  <li>Ensure all AccountInfo parameters undergo owner validation before data access.</li>
+                  <li>Verify that writable accounts are owned by the current program.</li>
+                  <li>Confirm system_program accounts are actually the system program (11111111111111111111111111111111).</li>
+                  <li>Validate that token accounts belong to the Token Program before attempting transfers.</li>
+                </ol>
+                <p>Missing any of these checks creates an exploitable attack surface.</p>    <a href="https://github.com/coral-xyz/anchor/blob/master/lang/src/accounts/account.rs">[VIEW SECURE IMPLEMENTATION EXAMPLES]</a>
             </div>
             
             <h3>3.2 RESPONSE PROTOCOL</h3>
