@@ -10,18 +10,20 @@
         }
         
         body {
-            background-color: #181a1b;
-            color: #00ff00;
-            font-family: 'Courier New', monospace;
-            font-size: 18px;
-            line-height: 1.4;
+            font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+            font-size: 16px;
+            color: #a8ffb0;
+            background: #181a1b;
+            line-height: 1.5;
             overflow-x: hidden;
             cursor: text;
+            font-weight: 500;
+            letter-spacing: 0.2px;
         }
         
         ::selection {
-            background-color: #00ff00;
-            color: #000;
+            background-color: #a8ffb0;
+            color: #181a1b;
         }
         
         .terminal-container {
@@ -45,11 +47,13 @@
         }
         
         .ascii-art {
-            color: #00ff00;
+            color: #a8ffb0;
             white-space: pre;
-            font-size: 12px;
-            line-height: 1;
+            font-size: 13px;
+            line-height: 1.2;
             margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
         
         .blink {
@@ -258,16 +262,16 @@
         .subsection {
             margin-left: 20px;
             padding: 15px;
-            border-left: 1px dashed #00ff00;
+            border-left: 1px dashed #a8ffb0;
         }
         
         a {
-            color: #00ff00;
+            color: #a8ffb0;
             text-decoration: underline;
         }
         
         a:hover {
-            color: #ffff00;
+            color: #eaffae;
         }
     </style>
 </head>
@@ -481,8 +485,7 @@ SIGNING_PROTOCOL = {
             </div>
             
             <p>
-                <span class="highlight">CRITICAL FINDING:</span> Ledger's clear signing mechanism 
-                prevents 94.7% of signature-based attacks when properly implemented.
+                <span class="highlight">CRITICAL FINDING:</span> Ledger's clear signing mechanism prevents 94.7% of signature-based attacks when properly implemented. Most implementations only compare the message hash, which rarely provides enough information for users to understand what they are signing. Clear signing instead displays the full transaction details, enabling true verification and preventing attacks that exploit user ambiguity.
             </p>
         </section>
 
