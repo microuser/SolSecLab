@@ -1,0 +1,13 @@
+[package]
+name = "SolSecLab"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+chrono = "0.4"
+html5ever = "0.26"
+markup5ever_rcdom = "0.2"
+
+[[bin]]
+name = "pretty_print"
+path = "src/pretty_print.rs"
